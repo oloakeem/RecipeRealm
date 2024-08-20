@@ -1,0 +1,8 @@
+.top-head{
+    display: flex;
+    justify-content: center;
+}
+.arrow-button {
+    width: 24px;
+    height: 24px;
+  }

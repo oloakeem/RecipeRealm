@@ -1,0 +1,23 @@
+.welcome-page{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px
+    ;
+}
+
+.homeBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #586276;
+    color: #cdf27e;
+    width: 50%;
+    height: 35px;
+    border: none;
+    border-radius: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}

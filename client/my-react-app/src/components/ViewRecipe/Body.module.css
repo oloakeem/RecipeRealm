@@ -1,0 +1,16 @@
+.food-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adds spacing between each food item */
+    max-width: 300px;
+    margin: 0 auto;
+    height: 100px;
+  }
+  
+  .food-item {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+  }
