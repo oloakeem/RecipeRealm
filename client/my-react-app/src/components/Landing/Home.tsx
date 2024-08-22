@@ -7,7 +7,10 @@ const Home = () => {
     <div className={styles["welcome-page"]}>
       <img id="kImage" src={myKitchen} alt="Cant display" />
       <Link to="/view-recipe" className={styles["homeBtn"]}>
-        Click me!
+        View as Guest
+      </Link>
+      <Link to="/verify-admin" className={styles["homeBtn"]}>
+        Login as Admin
       </Link>
     </div>
   );

@@ -13,7 +13,7 @@ const app = express()
 
 //MongoDB Connection goes 2nd
 
-mongoose.connect('mongodb://localhost/playground')
+mongoose.connect('mongodb://localhost/cookbook')
 .then(()=>console.log('Conneced to MongoDB...'))
 .catch(() => console.error('Failed to connect',error))
 
@@ -23,7 +23,7 @@ mongoose.connect('mongodb://localhost/playground')
 app.use(express.json());
 app.use(cors());
 app.use('/api/recipes', recipe);
-app.use('/api', adminRoutes);
+app.use('/', adminRoutes);
 
 const port = process.env.PORT || 3000;
 

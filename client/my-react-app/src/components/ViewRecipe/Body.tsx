@@ -1,5 +1,7 @@
 import styles from "./Body.module.css";
 import { useEffect, useState } from "react";
+import myImage from "../../assets/Arrow-Left.svg";
+import myplus from "../../assets/plus-sign.svg";
 import { Link } from "react-router-dom";
 
 interface FoodItem {
@@ -41,16 +43,31 @@ const Body = () => {
   };
   return (
     <>
-      <form onSubmit={(e) => e.preventDefault()}>
-        <input
-          onChange={handleSearchChange}
-          type="text"
-          placeholder="Search..."
-        />
-        <button type="submit" style={{ padding: "10px", borderRadius: "5px" }}>
-          Search
+      <div className={styles["top-head"]}>
+        <button>
+          <img
+            className={styles["arrow-button"]}
+            src={myImage}
+            alt="arrow-button"
+          />
         </button>
-      </form>
+        <form onSubmit={(e) => e.preventDefault()}>
+          <input
+            onChange={handleSearchChange}
+            type="text"
+            placeholder="Search..."
+            value={search} // Ensures the input reflects the current search state
+          />
+        </form>
+        <Link to="/add-recipe">
+          <img
+            className={styles["arrow-button"]}
+            src={myplus}
+            alt="arrow-button"
+          />
+        </Link>
+      </div>
+
       <div className={styles["food-list"]}>
         {filteredFoodList.map((food) => (
           <div key={food._id} className={styles["food-item"]}>

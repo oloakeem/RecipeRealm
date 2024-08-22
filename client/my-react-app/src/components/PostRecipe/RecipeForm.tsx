@@ -7,6 +7,8 @@ const RecipeForm = () => {
   const [directions, setDirections] = useState("");
   const [prepTime, setPrepTime] = useState("");
   const [totalTime, setTotalTime] = useState("");
+  const isAdmin = sessionStorage.getItem("isAdmin");
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
@@ -18,30 +20,32 @@ const RecipeForm = () => {
       prepTime,
       totalTime,
     };
-
     try {
-      // Post form data to the server
-      const response = await fetch("http://localhost:3000/api/recipes", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      if (isAdmin) {
+        // Post form data to the server
 
-      if (!response.ok) {
-        console.log(formData);
-        throw new Error("Network response was not ok");
+        const response = await fetch("http://localhost:3000/api/recipes", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (!response.ok) {
+          console.log(formData);
+          throw new Error("Network response was not ok");
+        }
+
+        await response.json();
+        alert("Recipe submitted successfully!");
+        // Reset form fields after submission
+        setDishName("");
+        setIngredients("");
+        setDirections("");
+        setPrepTime("");
+        setTotalTime("");
       }
-
-      await response.json();
-      alert("Recipe submitted successfully!");
-      // Reset form fields after submission
-      setDishName("");
-      setIngredients("");
-      setDirections("");
-      setPrepTime("");
-      setTotalTime("");
     } catch (error) {
       console.error("Error submitting recipe:", error);
       alert("Failed to submit recipe");

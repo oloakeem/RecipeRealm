@@ -3,14 +3,16 @@ const router = express.Router();
 const { verifyAdminPassword } = require('../middleware/adminAuth');
 
 // POST route (e.g., creating a new resource)
-router.post('/admin/protected-route', async (req, res) => {
-  const { password, data } = req.body;
+router.post('/api/admins', async (req, res) => {
+  const { password } = req.body;
 
   if (await verifyAdminPassword(password)) {
     // Perform the create operation
-    res.status(201).send('Resource created');
+    return res.json({ isAdmin: true });
+
   } else {
-    res.status(401).send('Unauthorized');
+    return res.json({ isAdmin: false });
+
   }
 });
 

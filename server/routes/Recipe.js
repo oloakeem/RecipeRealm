@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
-const { verifyAdminPassword } = require('../middleware/adminAuth');
 
 // Define your Recipe model (if not already defined)
 const RecipeSchema = new mongoose.Schema({
@@ -16,10 +15,9 @@ const Recipe = mongoose.model('Recipe', RecipeSchema);
 
 // POST route to add a new item
 router.post('/', async (req, res) => {
-  const { password, ...recipeData } = req.body;
+  const {...recipeData } = req.body;
 
-  if (await verifyAdminPassword(password)) {
-    // Perform the create operation
+
     try {
       const recipe = new Recipe(recipeData);
       await recipe.save();
@@ -27,9 +25,7 @@ router.post('/', async (req, res) => {
     } catch (error) {
       res.status(400).json({ error: 'Error saving recipe' });
     }
-  } else {
-    res.status(401).send('Unauthorized');
-  }
+ 
 });
 
 // GET route to fetch all items

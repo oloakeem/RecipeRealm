@@ -11,4 +11,4 @@ async function hashPassword(password) {
 }
 
 // Replace 'yourSecurePassword' with the actual password you want to hash
-hashPassword('akeem');
+hashPassword(process.env.ADMIN_PASSWORD);
