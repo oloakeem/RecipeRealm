@@ -1,0 +1,53 @@
+
+.headerName{
+    width: 100%;
+    height: 100%;
+}
+.microInfo{
+display: flex;
+justify-content: center;
+margin: 2rem;
+}
+.microInfoBody{
+    display:  flex;
+    justify-content: space-between;
+    align-items: center;
+    border:1px solid;
+    padding: 10px;
+    border-radius: 6px;
+    
+}
+#miniSVG {
+height: 1rem;
+width: 1rem;
+margin-right: 3px;
+}
+.lineBreak{
+    border: 1px solid gainsboro;
+    width: 100vw;
+    margin: 2rem;
+}
+button {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    font-size: .9rem;
+    height: 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+  
+  }
+  .buttonContainer {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 20px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+  

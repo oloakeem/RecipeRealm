@@ -1,12 +1,15 @@
 const mongoose = require('mongoose');
 const express = require('express');
+const { string } = require('joi');
 const router = express.Router();
 
 // Define your Recipe model (if not already defined)
 const RecipeSchema = new mongoose.Schema({
   dishName: String,
-  ingredients: String,
-  directions: String,
+  ingredients: Array,
+  directions: Array,
+  author: String,
+  servingSize : String,
   prepTime: String,
   totalTime: String,
 });

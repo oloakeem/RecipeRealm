@@ -12,6 +12,7 @@ const Body = () => {
   const [search, setSearch] = useState("");
   const [foodList, setFoodList] = useState<FoodItem[]>([]);
   const [filteredFoodList, setFilteredFoodList] = useState<FoodItem[]>([]);
+  const isAdmin = sessionStorage.getItem("isAdmin");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,6 +50,7 @@ const Body = () => {
             className={styles["arrow-button"]}
             src={myImage}
             alt="arrow-button"
+            onClick={() => window.history.back()}
           />
         </button>
         <form onSubmit={(e) => e.preventDefault()}>
@@ -59,13 +61,15 @@ const Body = () => {
             value={search} // Ensures the input reflects the current search state
           />
         </form>
-        <Link to="/add-recipe">
-          <img
-            className={styles["arrow-button"]}
-            src={myplus}
-            alt="arrow-button"
-          />
-        </Link>
+        {isAdmin && (
+          <Link to="/add-recipe">
+            <img
+              className={styles["arrow-button"]}
+              src={myplus}
+              alt="plus-button"
+            />
+          </Link>
+        )}
       </div>
 
       <div className={styles["food-list"]}>
