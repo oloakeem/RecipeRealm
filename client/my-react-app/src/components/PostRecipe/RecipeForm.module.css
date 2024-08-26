@@ -60,7 +60,7 @@ li::marker{
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
-  background-color: #007bff;
+  background-color: #6da97a;
   color: white;
   font-size: .9rem;
   height: 2rem;
@@ -72,9 +72,6 @@ li::marker{
 
 .formGroup button#closeButton {
 background-color: rgb(184, 184, 184);
-}
-.formGroup button:hover {
-  background-color: #0056b3;
 }
 
 

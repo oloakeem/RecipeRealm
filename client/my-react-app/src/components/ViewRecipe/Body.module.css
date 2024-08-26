@@ -1,27 +1,80 @@
 .food-list {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Adds spacing between each food item */
-    max-width: 300px;
-    margin: 0 auto;
+    max-width: 100vw;
     height: 100px;
-  }
+    align-items: center;
+
+}
   
   .food-item {
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: bold;
+    display: flex;
+    border-bottom: 1px solid #d8d8d8; /* Adds a bottom border */
+    width: 80%;
+    height: 100px;
+    
+  }
+  
+  .food-image {
+    display: flex;
+    align-items: center;   
+    width: 25%; /* Image takes up 1/4th of the width */
+    margin: 1rem; /* Adds margin between image and text */
+  }
+  
+  .food-details a {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ensures the text is aligned to 
+    the top */
+    text-decoration: none;
+    color: inherit; /* Inherits the color from its parent element */
+
+  }
+  
+  .food-details a {
+    margin-bottom: 0.5rem; /* Adds a little margin below the dish name */
+  }
+  
+  .searchBar{
+    display: flex;
+    margin: 5px;
+    justify-content: center;
   }
 
-  .top-head{
+  /* .top-head{
     display: flex;
-    justify-content: space-around;
     margin: 5px;
-    
-}
+  }
+     */
 .arrow-button {
-    width: 24px;
     height: 24px;
   }
+  .return-button {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #6da97a; /* Same as Login button */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+
+
+.add-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #6da97a; /* Same as Login button */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+

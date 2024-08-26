@@ -1,23 +1,44 @@
-.welcome-page{
+.welcome-page {
+    position: relative; /* Position relative to use absolute positioning inside */
+    height: 100vh; /* Full viewport height */
+    background-image: 
+      linear-gradient(to top, rgba(0, 0, 0, .95) 10%, rgba(0, 0, 0, 0)), /* Gradient overlay */
+      url("../../assets/home-landing-mobile.jpg"); /* Background image */
+    background-size: cover; /* Cover the entire element */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: center; /* Center the image */
+  }
+  
+  
+  
+  .home-components {
+    position: absolute; /* Position absolute within the welcome-page */
+    bottom: 10%; /* Align to the bottom of the viewport */
+    width: 100%; /* Full width of the viewport */
     display: flex;
-    height: 100vh;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 30px
-    ;
-}
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    gap: 10px; /* Space between the buttons */
+    padding: 1rem; /* Padding around the content */
 
-.homeBtn{
+    height: 25%;
+
+  }
+  
+  .homeBtn {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #586276;
-    color: #cdf27e;
-    width: 50%;
-    height: 35px;
-    border: none;
-    border-radius: 20px;
-    text-decoration: none;
-    cursor: pointer;
-}
+    background-color: #6da97a; /* Button background color */
+    color: #ffffff; /* Text color */
+    width: 60%; /* Button width */
+    height: 40px; /* Button height */
+    border: none; /* No border */
+    border-radius: 10px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Pointer cursor on hover */
+  }
+  .home-heading{
+    text-align: center;
+    color: white;
+  }

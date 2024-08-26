@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import myImage from "../../assets/Arrow-Left.svg";
 import myplus from "../../assets/plus-sign.svg";
 import { Link } from "react-router-dom";
+import myClock from "../../assets/clock-circle-svgrepo-com.svg";
 
 interface FoodItem {
   _id: string;
@@ -45,16 +46,18 @@ const Body = () => {
   return (
     <>
       <div className={styles["top-head"]}>
-        <button>
-          <img
-            className={styles["arrow-button"]}
-            src={myImage}
-            alt="arrow-button"
-            onClick={() => window.history.back()}
-          />
+        <button
+          className={styles["return-button"]}
+          onClick={() => window.history.back()}
+        >
+          ←
         </button>
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form
+          className={styles["searchBar"]}
+          onSubmit={(e) => e.preventDefault()}
+        >
           <input
+            className={styles["searchBar"]}
             onChange={handleSearchChange}
             type="text"
             placeholder="Search..."
@@ -63,11 +66,7 @@ const Body = () => {
         </form>
         {isAdmin && (
           <Link to="/add-recipe">
-            <img
-              className={styles["arrow-button"]}
-              src={myplus}
-              alt="plus-button"
-            />
+            <button className={styles["add-button"]}>+</button>
           </Link>
         )}
       </div>
@@ -75,9 +74,16 @@ const Body = () => {
       <div className={styles["food-list"]}>
         {filteredFoodList.map((food) => (
           <div key={food._id} className={styles["food-item"]}>
-            <Link to={`/view-specific-recipe/${food._id}`}>
-              {food.dishName}
-            </Link>
+            <img
+              src={myClock}
+              alt={food.dishName}
+              className={styles["food-image"]}
+            />
+            <div className={styles["food-details"]}>
+              <Link to={`/view-specific-recipe/${food._id}`}>
+                {food.dishName}
+              </Link>
+            </div>
           </div>
         ))}
       </div>
