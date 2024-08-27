@@ -10,23 +10,27 @@ body, html {
 .login-page {
   position: relative;
   height: 100vh;
+  background-color: #121212; /* Dark background for the page */
 }
 
+/* Return Button */
 .return-button {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: #6da97a; /* Same as Login button */
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #6da97a; /* Darker shade for button */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-
+.return-button:hover {
+  background-color: #388e3c; /* Darker shade on hover */
+}
 
 /* Flexbox centering */
 .login-container {
@@ -34,8 +38,9 @@ body, html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
   height: 100%;
-  background-color: #f0f2f5; /* Light background */
+  background-color: #1e1e1e; /* Slightly lighter dark background */
   padding: 20px;
   box-sizing: border-box;
 }
@@ -44,14 +49,14 @@ body, html {
 h2 {
   font-size: 24px;
   margin-bottom: 20px;
-  color: #333;
+  color: #e0e0e0; /* Light gray text */
 }
 
 .form-login {
-  background-color: #fff;
+  background-color: #2c2c2c; /* Dark background for the form */
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Stronger shadow for depth */
   width: 100%;
   max-width: 400px;
 }
@@ -64,14 +69,16 @@ label {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
-  color: #555;
+  color: #b0b0b0; /* Lighter gray for labels */
 }
 
 input[type="password"] {
   width: 100%;
   padding: 10px;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid #444; /* Dark border */
+  background-color: #333; /* Dark input background */
+  color: #fff; /* Light text color */
   box-sizing: border-box;
 }
 
@@ -80,17 +87,20 @@ button[type="submit"] {
   padding: 10px;
   border: none;
   border-radius: 4px;
-  background-color: #6da97a; /* Blue button */
+  background-color: #6da97a; /* Consistent button color */
   color: #fff;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
+button[type="submit"]:hover {
+  background-color: #388e3c; /* Darker shade on hover */
+}
 
 /* Error message styling */
 .error-message {
-  color: red;
+  color: #ff5252; /* Red color for error messages */
   margin-top: 10px;
   font-size: 14px;
 }

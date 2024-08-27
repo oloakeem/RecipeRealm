@@ -1,14 +1,13 @@
 import styles from "./Body.module.css";
 import { useEffect, useState } from "react";
-import myImage from "../../assets/Arrow-Left.svg";
-import myplus from "../../assets/plus-sign.svg";
-import { Link } from "react-router-dom";
 import myClock from "../../assets/clock-circle-svgrepo-com.svg";
+import { Link } from "react-router-dom";
 
 interface FoodItem {
   _id: string;
   dishName: string;
 }
+
 const Body = () => {
   const [search, setSearch] = useState("");
   const [foodList, setFoodList] = useState<FoodItem[]>([]);
@@ -43,6 +42,7 @@ const Body = () => {
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
+
   return (
     <>
       <div className={styles["top-head"]}>
@@ -52,23 +52,27 @@ const Body = () => {
         >
           ←
         </button>
-        <form
-          className={styles["searchBar"]}
-          onSubmit={(e) => e.preventDefault()}
-        >
-          <input
-            className={styles["searchBar"]}
-            onChange={handleSearchChange}
-            type="text"
-            placeholder="Search..."
-            value={search} // Ensures the input reflects the current search state
-          />
-        </form>
+        <h2 className={styles["search-title"]}>Search</h2>
+
         {isAdmin && (
           <Link to="/add-recipe">
             <button className={styles["add-button"]}>+</button>
           </Link>
         )}
+      </div>
+
+      <div className={styles["search-container"]}>
+        <form
+          className={styles["searchBar"]}
+          onSubmit={(e) => e.preventDefault()}
+        >
+          <input
+            onChange={handleSearchChange}
+            type="text"
+            placeholder="Search..."
+            value={search}
+          />
+        </form>
       </div>
 
       <div className={styles["food-list"]}>

@@ -5,6 +5,7 @@ import avatar from "../../assets/avatar-profile-svgrepo-com.svg";
 import dishTray from "../../assets/dish-tray-svgrepo-com.svg";
 import myClock from "../../assets/clock-circle-svgrepo-com.svg";
 import { useNavigate } from "react-router-dom";
+import myKitchen from "../../assets/cookbook.png";
 
 interface FoodItem {
   _id: string;
@@ -43,31 +44,39 @@ const Recipe = () => {
     return <div>Loading...</div>; // Handle loading state
   }
   return (
-    <>
+    <div className={styles["view-specific-page"]}>
+      <div className={styles["specific-image"]}>
+        <img src={myKitchen} alt="" />
+      </div>
       <h1 className={styles.headerName}>{foodRecipe.dishName}</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis quam non
+        ut ratione temporibus unde ipsum excepturi repudiandae officiis,
+        aspernatur deleniti pariatur ad at magni.
+      </p>
       <div className={styles.lineBreak}></div>
       <div className={styles.microInfo}>
         <div className={styles.microInfoBody}>
           <div>
-            <img id={styles.miniSVG} src={avatar} alt="" />
+            <h6>AUTHOR</h6>
             {foodRecipe.author}
           </div>
           <div>
-            <img id={styles.miniSVG} src={dishTray} alt="" />
+            <h6>SERVING SIZE</h6>
             {foodRecipe.servingSize}
           </div>
           <div>
-            <img id={styles.miniSVG} src={myClock} alt="" />
+            <h6>PREP TIME</h6>
             {foodRecipe.prepTime}
           </div>
           <div>
-            <img id={styles.miniSVG} src={myClock} alt="" />
+            <h6>TOTAL TIME</h6>
             {foodRecipe.totalTime}
           </div>
         </div>
       </div>
       <div className={styles.lineBreak}></div>
-      <div className="ingredientSection">
+      <div className={styles["ingredientSection"]}>
         <h2>Ingredients</h2>
         <ul>
           {foodRecipe.ingredients.map((items) => (
@@ -76,7 +85,7 @@ const Recipe = () => {
         </ul>
       </div>
       <div className={styles.lineBreak}></div>
-      <div className="directionSection">
+      <div className={styles["directionSection"]}>
         <h2>Direction</h2>
         <ol>
           {foodRecipe.directions.map((items) => (
@@ -87,7 +96,7 @@ const Recipe = () => {
       <div className={styles.buttonContainer}>
         <button onClick={() => navigate(-1)}>Go Back</button>
       </div>
-    </>
+    </div>
   );
 };
 export default Recipe;

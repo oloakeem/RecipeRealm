@@ -1,53 +1,112 @@
-
-.headerName{
-    width: 100%;
-    height: 100%;
-}
-.microInfo{
-display: flex;
-justify-content: center;
-margin: 2rem;
-}
-.microInfoBody{
-    display:  flex;
-    justify-content: space-between;
+/* Main Container */
+.view-specific-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: white;
+    max-width: 800px;
+    margin: auto;
+    background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.95) 55%, /* Dark portion remains at 80% */
+      rgba(0, 0, 0, 0.5) 65%,  /* Intermediate fade at 90% */
+      rgba(0, 0, 0, 0) 100%    /* Fully transparent at 100% */
+    );
+  }
+/* Specific Image */
+.specific-image {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    border:1px solid;
-    padding: 10px;
-    border-radius: 6px;
-    
-}
-#miniSVG {
-height: 1rem;
-width: 1rem;
-margin-right: 3px;
-}
-.lineBreak{
-    border: 1px solid gainsboro;
-    width: 100vw;
+    margin: 20px 0;
+  }
+  
+  .specific-image img {
+    width: 100%;
+    z-index: -1;
+    height: auto;
+    max-width: 400px; /* Adjust as needed */
+  }
+  
+  /* Header Section */
+  .headerName {
+    width: 100%;
+    height: auto;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+  
+  /* Line Break */
+  .lineBreak {
+    border: 1px solid rgb(80, 77, 77);
+    width: 100%;
+    margin: 2rem 0;
+  }
+  
+  /* Micro Info Section */
+  .microInfo {
+    display: flex;
+    justify-content: center;
     margin: 2rem;
-}
-button {
+  }
+  
+  .microInfoBody {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .microInfoBody div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+    color: white;
+  }
+  
+  /* Icon Styles */
+  #miniSVG {
+    height: 1rem;
+    width: 1rem;
+    margin-right: 3px;
+  }
+  
+  /* Ingredients and Directions Sections */
+  .ingredientSection,
+  .directionSection {
+    color: white;
+    margin: 20px 0;
+  }
+  
+  .ingredientSection h2,
+  .directionSection h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Button Styles */
+   .buttonContainer button {
     display: flex;
     align-items: center;
+    justify-content: center; /* Center text horizontally */
     padding: 10px 15px;
     border: none;
-    border-radius: 4px;
-    background-color: #007bff;
+    background-color: #6da97a;
     color: white;
-    font-size: .9rem;
-    height: 2rem;
+    font-size: 0.9rem;
     border-radius: 1rem;
     cursor: pointer;
-  
+    width: 80%;
+    height: 2.5rem;
+    text-align: center;
   }
+  
   .buttonContainer {
     display: flex;
     justify-content: center;
-    position: fixed;
-    bottom: 20px; /* Adjust as needed */
-    left: 50%;
-    transform: translateX(-50%);
     width: 100%;
+    margin-top: 20px;
   }
   

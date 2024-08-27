@@ -187,11 +187,13 @@ const RecipeForm = () => {
             required
           />
         </div>
-        <div id={styles.submitBtn} className={styles["formGroup"]}>
+        <div id={styles.submitBtnGroup} className={styles["formGroup"]}>
           <button id={styles.closeButton} onClick={() => navigate(-1)}>
             Cancel
           </button>
-          <button type="submit">Submit</button>
+          <button className={styles.submitBtn} type="submit">
+            Submit
+          </button>
         </div>
       </form>
     </div>
