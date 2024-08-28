@@ -2,6 +2,8 @@ import styles from "./Body.module.css";
 import { useEffect, useState } from "react";
 import myClock from "../../assets/clock-circle-svgrepo-com.svg";
 import { Link } from "react-router-dom";
+import myarrow from "../../assets/Arrow-Left.svg";
+import myplus from "../../assets/plus-sign.svg";
 
 interface FoodItem {
   _id: string;
@@ -50,13 +52,15 @@ const Body = () => {
           className={styles["return-button"]}
           onClick={() => window.history.back()}
         >
-          ←
+          <img src={myarrow} alt="" />
         </button>
-        <h2 className={styles["search-title"]}>Search</h2>
+        <h2 className={styles["search-title"]}>Recipe Catalog</h2>
 
         {isAdmin && (
           <Link to="/add-recipe">
-            <button className={styles["add-button"]}>+</button>
+            <button className={styles["add-button"]}>
+              <img src={myplus} alt="" />
+            </button>
           </Link>
         )}
       </div>

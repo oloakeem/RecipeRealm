@@ -16,23 +16,21 @@
 
 /* Return Button */
 .return-button {
-  background-color: #4a5d41; /* Darker green color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333; /* Darker green color */
   color: #fff;
   border: none;
-  border-radius: 4px;
-  font-size: 1.5rem;
+  border-radius: 20px;
   cursor: pointer;
-  padding: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.return-button:hover {
-  background-color: #3c4a35; /* Even darker shade on hover */
+  height: 40px;
+  width: 40px;
 }
 
 /* Add Button */
 .add-button {
-  background-color: #4a5d41; /* Darker green color */
+  background-color: #333; /* Darker green color */
   color: #fff;
   border: none;
   font-size: 1.5rem;
@@ -54,15 +52,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px;
+  padding: 20px;
+  background-color: #222;
 }
 
 
 .search-title {
-
   font-size: 1.2rem;
   color: #ddd; /* Lighter text color for better readability on dark background */
-  margin-bottom: 10px;
+  margin: auto;
 }
 
 .searchBar {
@@ -97,14 +95,15 @@
 /* Food Item */
 .food-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   border-bottom: 1px solid #555; /* Darker border color */
   width: 80%;
   padding: 10px;
   margin: 10px auto; /* Centered with spacing between items */
   background-color: #333; /* Dark background for items */
   border-radius: 8px; /* Rounded corners for modern look */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Darker shadow for depth */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Darker shadow for 
+  depth */
 }
 
 /* Food Image */
@@ -120,7 +119,7 @@
 }
 
 .food-details a {
-  display: block;
+  display: flex;
   text-decoration: none;
   color: #ddd; /* Lighter text color for better readability on dark background */
   font-size: 1rem;
@@ -129,4 +128,37 @@
 
 .food-details a:hover {
   color: #6da97a; /* Highlight color on hover */
+}
+
+
+/* Tablets */
+@media screen and (min-width: 600px) and (max-width: 1023px) {
+  .formContainer {
+    max-width: 800px; /* Wider container for tablets */
+    padding: 30px; /* Increased padding */
+  }
+
+  .formGroup button#addIngredients {
+    width: 8rem; /* Slightly larger button */
+  }
+
+  .formGroup input,
+  .formGroup textarea {
+    padding: 12px; /* Increased padding */
+  }
+
+  .formGroup button {
+    padding: 12px 20px; /* Larger button padding */
+    font-size: 1rem; /* Larger font size */
+    height: 2.5rem; /* Larger button height */
+  }
+
+  .submitBtn {
+    width: 40%; /* Wider submit buttons */
+  }
+}
+
+/* Desktops */
+@media screen and (min-width: 1024px) {
+
 }

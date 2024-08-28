@@ -110,3 +110,42 @@
     margin-top: 20px;
   }
   
+  
+/* Tablets */
+@media screen and (min-width: 600px) and (max-width: 1023px) {
+  .view-specific-page {
+    padding: 30px; /* Increased padding for tablets */
+    max-width: 1000px; /* Wider container */
+  }
+
+  .specific-image img {
+    max-width: 600px; /* Larger max-width for images */
+  }
+
+  .headerName {
+    font-size: 3rem; /* Larger font size for header */
+  }
+
+  .lineBreak {
+    border-width: 2px; /* Thicker border */
+  }
+
+  .microInfoBody {
+    max-width: 800px; /* Wider container */
+  }
+
+  .ingredientSection h2,
+  .directionSection h2 {
+    font-size: 1.75rem; /* Larger headings */
+  }
+
+  .buttonContainer button {
+    padding: 12px 20px; /* Larger button padding */
+    font-size: 1rem; /* Larger font size */
+  }
+}
+
+/* Desktops */
+@media screen and (min-width: 1024px) {
+  
+}

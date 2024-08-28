@@ -82,7 +82,7 @@ input[type="password"] {
   box-sizing: border-box;
 }
 
-button[type="submit"] {
+.form-login button[type="submit"] {
   width: 100%;
   padding: 10px;
   border: none;
@@ -103,4 +103,49 @@ button[type="submit"]:hover {
   color: #ff5252; /* Red color for error messages */
   margin-top: 10px;
   font-size: 14px;
+}
+
+/* Tablets */
+@media screen and (min-width: 600px) and (max-width: 1023px) {
+  /* Styles for tablets */
+  .form-login {
+    max-width: 500px; /* Increase form width for tablets */
+    padding: 40px; /* Increase padding */
+  }
+
+  .return-button {
+    font-size: 18px; /* Larger button text */
+    padding: 12px 24px; /* Increase button padding */
+  }
+
+  h2 {
+    font-size: 28px; /* Larger heading */
+  }
+}
+
+/* Desktops */
+@media screen and (min-width: 1024px) {
+  /* Styles for desktops */
+  .form-login {
+    max-width: 600px; /* Increase form width for desktops */
+    padding: 50px; /* Increase padding */
+  }
+
+  .return-button {
+    font-size: 20px; /* Larger button text */
+    padding: 14px 28px; /* Increase button padding */
+  }
+
+  h2 {
+    font-size: 32px; /* Larger heading */
+  }
+
+  input[type="password"] {
+    font-size: 18px; /* Increase input text size */
+    padding: 12px; /* Increase input padding */
+  }
+
+  .error-message {
+    font-size: 16px; /* Increase error message text size */
+  }
 }
