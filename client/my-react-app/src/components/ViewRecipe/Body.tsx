@@ -79,21 +79,23 @@ const Body = () => {
         </form>
       </div>
 
-      <div className={styles["food-list"]}>
-        {filteredFoodList.map((food) => (
-          <div key={food._id} className={styles["food-item"]}>
-            <img
-              src={myClock}
-              alt={food.dishName}
-              className={styles["food-image"]}
-            />
-            <div className={styles["food-details"]}>
-              <Link to={`/view-specific-recipe/${food._id}`}>
-                {food.dishName}
-              </Link>
+      <div className={styles.foodContainer}>
+        <div className={styles["food-list"]}>
+          {filteredFoodList.map((food) => (
+            <div key={food._id} className={styles["food-item"]}>
+              <img
+                src={myClock}
+                alt={food.dishName}
+                className={styles["food-image"]}
+              />
+              <div className={styles["food-details"]}>
+                <Link to={`/view-specific-recipe/${food._id}`}>
+                  {food.dishName}
+                </Link>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </>
   );

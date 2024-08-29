@@ -81,8 +81,8 @@ const RecipeForm = () => {
 
   return (
     <div className={styles["formContainer"]}>
-      <h1>New Recipe</h1>
       <form onSubmit={handleSubmit}>
+        <h1>New Recipe</h1>
         <div className={styles["formGroup"]}>
           <label htmlFor="dishName">Name</label>
           <input
@@ -112,12 +112,14 @@ const RecipeForm = () => {
           </button>
         </div>
         <div className={styles["formGroup"]}>
-          <h6>Ingredients List:</h6>
-          <ul>
-            {ingredients.map((ing, index) => (
-              <li key={index}>{ing}</li>
-            ))}
-          </ul>
+          <div className={styles.itemListView}>
+            <h6>Ingredients List:</h6>
+            <ul>
+              {ingredients.map((ing, index) => (
+                <li key={index}>{ing}</li>
+              ))}
+            </ul>
+          </div>
         </div>
         {/* Controls Directions Section on forms  */}
 
@@ -136,12 +138,14 @@ const RecipeForm = () => {
           </button>
         </div>
         <div className={styles["formGroup"]}>
-          <h6>Directions:</h6>
-          <ol>
-            {directions.map((dir, index) => (
-              <li key={index}>{dir}</li>
-            ))}
-          </ol>
+          <div className={styles.itemListView}>
+            <h6>Directions List:</h6>
+            <ol>
+              {directions.map((dir, index) => (
+                <li key={index}>{dir}</li>
+              ))}
+            </ol>
+          </div>
         </div>
         <div className={styles["formGroup"]}>
           <label htmlFor="author">Author</label>
@@ -196,6 +200,20 @@ const RecipeForm = () => {
           </button>
         </div>
       </form>
+      <div className={`${styles["formGroup"]} ${styles["right-half"]}`}>
+        <h6>Ingredients List:</h6>
+        <ul>
+          {ingredients.map((ing, index) => (
+            <li key={index}>{ing}</li>
+          ))}
+        </ul>
+        <h6>Directions List:</h6>
+        <ol>
+          {directions.map((dir, index) => (
+            <li key={index}>{dir}</li>
+          ))}
+        </ol>
+      </div>
     </div>
   );
 };

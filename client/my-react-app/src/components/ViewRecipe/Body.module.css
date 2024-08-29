@@ -156,9 +156,85 @@
   .submitBtn {
     width: 40%; /* Wider submit buttons */
   }
+
+.foodContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100vh;
+  background-color: #222; /* Dark background for the list */
+  max-width: 100vw;
+}
+  
+/*Food list*/
+.food-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 2 columns of equal width */
+  grid-template-rows: repeat(3, 1fr); /* 3 rows of equal height */
+  gap: 20px; /* Spacing between grid items */
+  padding: 10px;
+  background-color: #222; /* Dark background for the list */
+  width: 100%;
+  height: 100%; /* Full height */
+  margin: 0 auto;
+}
+
+
+/* Food Item */
+.food-item {
+  display: flex;
+  align-items: center ;
+  flex-direction: column;
+ 
+}
+/* Food Image */
+.food-image {
+  width: 80%; /* Fixed width for image */
+  height: 100px; /* Fixed height to maintain aspect ratio */
+  margin-right: 0px; /* Space between image and text */
+  flex:2;
+}
 }
 
 /* Desktops */
 @media screen and (min-width: 1024px) {
 
+  
+.foodContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100vh;
+  background-color: #222; /* Dark background for the list */
+  max-width: 100vw;
+}
+  
+/*Food list*/
+.food-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 2 columns of equal width */
+  grid-template-rows: repeat(3, 1fr); /* 3 rows of equal height */
+  gap: 20px; /* Spacing between grid items */
+  padding: 10px;
+  background-color: #222; /* Dark background for the list */
+  width: 100%;
+  height: 100%; /* Full height */
+  margin: 0 auto;
+}
+
+
+/* Food Item */
+.food-item {
+  display: flex;
+  align-items: center ;
+  flex-direction: column;
+ 
+}
+/* Food Image */
+.food-image {
+  width: 80%; /* Fixed width for image */
+  height: 100px; /* Fixed height to maintain aspect ratio */
+  margin-right: 0px; /* Space between image and text */
+  flex:2;
+}
 }
