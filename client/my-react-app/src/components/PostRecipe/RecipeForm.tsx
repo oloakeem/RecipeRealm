@@ -4,67 +4,70 @@ import { useNavigate } from "react-router-dom";
 
 const RecipeForm = () => {
   const [dishName, setDishName] = useState("");
-  // State for the ingredient input field
   const [direction, setDirection] = useState<string>("");
   const [ingredient, setIngredient] = useState<string>("");
-  // State for the list of ingredients & directions
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [directions, setDirections] = useState<string[]>([]);
-
   const [author, setAuthor] = useState("");
   const [servingSize, setServingSize] = useState("");
   const [prepTime, setPrepTime] = useState("");
   const [totalTime, setTotalTime] = useState("");
+  const [image, setImage] = useState<File | null>(null); // State for the image file
   const isAdmin = sessionStorage.getItem("isAdmin");
   const navigate = useNavigate();
 
-  // Add an ingredient to the list
   const handleAddIngredient = () => {
     if (ingredient.trim()) {
       setIngredients([...ingredients, ingredient]);
-      setIngredient(""); // Clear the input field after adding
+      setIngredient("");
     }
   };
+
   const handleAddDirection = () => {
     if (direction.trim()) {
       setDirections([...directions, direction]);
-      setDirection(""); // Clear the input field after adding
+      setDirection("");
+    }
+  };
+
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      setImage(event.target.files[0]);
     }
   };
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    // Create an object with the form data
-    const formData = {
-      dishName,
-      ingredients,
-      directions,
-      author,
-      servingSize,
-      prepTime,
-      totalTime,
-    };
+    const formData = new FormData();
+    formData.append("dishName", dishName);
+    formData.append("author", author);
+    formData.append("servingSize", servingSize);
+    formData.append("prepTime", prepTime);
+    formData.append("totalTime", totalTime);
+    formData.append("ingredients", JSON.stringify(ingredients));
+    formData.append("directions", JSON.stringify(directions));
+
+    if (image) {
+      console.log(image);
+      formData.append("image", image); // Append the image file
+    }
+
     try {
       if (isAdmin) {
-        // Post form data to the server
-
-        const response = await fetch("http://localhost:3000/api/recipes", {
+        const response = await fetch("http://localhost:5000/api/recipes", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
+          body: formData,
         });
 
         if (!response.ok) {
-          console.log(formData);
+          const errorData = await response.json();
+          console.error("Error details:", errorData);
           throw new Error("Network response was not ok");
         }
 
         await response.json();
         alert("Recipe submitted successfully!");
-        // Reset form fields after submission
         setDishName("");
         setIngredient("");
         setDirection("");
@@ -72,6 +75,9 @@ const RecipeForm = () => {
         setServingSize("");
         setPrepTime("");
         setTotalTime("");
+        setImage(null);
+      } else {
+        alert("You are not authorized to submit recipes.");
       }
     } catch (error) {
       console.error("Error submitting recipe:", error);
@@ -81,12 +87,12 @@ const RecipeForm = () => {
 
   return (
     <div className={styles["formContainer"]}>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.formBox} onSubmit={handleSubmit}>
         <h1>New Recipe</h1>
         <div className={styles["formGroup"]}>
           <label htmlFor="dishName">Name</label>
           <input
-            placeholder="(e.g.,Rigatoni)"
+            placeholder="(e.g., Rigatoni)"
             type="text"
             id="dishName"
             value={dishName}
@@ -94,15 +100,16 @@ const RecipeForm = () => {
             required
           />
         </div>
-        {/* Controls Ingredients Section on forms  */}
+
+        {/* Ingredients Section */}
         <div className={`${styles.formGroup} ${styles.ingredients}`}>
           <label htmlFor="ingredients">Ingredients</label>
           <input
             id="ingredients"
-            value={ingredient} // Assuming ingredients are input as a newline-separated string
+            value={ingredient}
             onChange={(e) => setIngredient(e.target.value)}
             placeholder="(e.g., Basil, 2 Bunches)"
-          ></input>
+          />
           <button
             id={styles.addIngredients}
             type="button"
@@ -111,7 +118,7 @@ const RecipeForm = () => {
             Add More
           </button>
         </div>
-        <div className={styles["formGroup"]}>
+        <div className={`${styles["formGroup"]} ${styles.overLappingBox}`}>
           <div className={styles.itemListView}>
             <h6>Ingredients List:</h6>
             <ul>
@@ -121,8 +128,8 @@ const RecipeForm = () => {
             </ul>
           </div>
         </div>
-        {/* Controls Directions Section on forms  */}
 
+        {/* Directions Section */}
         <div className={styles["formGroup"]}>
           <label htmlFor="directions">Directions/Steps</label>
           <textarea
@@ -137,7 +144,7 @@ const RecipeForm = () => {
             Add Steps
           </button>
         </div>
-        <div className={styles["formGroup"]}>
+        <div className={`${styles["formGroup"]} ${styles.overLappingBox}`}>
           <div className={styles.itemListView}>
             <h6>Directions List:</h6>
             <ol>
@@ -147,6 +154,19 @@ const RecipeForm = () => {
             </ol>
           </div>
         </div>
+
+        {/* Image Upload Section */}
+        <div className={styles["formGroup"]}>
+          <label htmlFor="image">Upload Image</label>
+          <input
+            type="file"
+            id="image"
+            accept="image/*"
+            onChange={handleImageChange}
+          />
+        </div>
+
+        {/* Other Fields */}
         <div className={styles["formGroup"]}>
           <label htmlFor="author">Author</label>
           <input
@@ -154,7 +174,7 @@ const RecipeForm = () => {
             id="author"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
-            placeholder="Chefs Name"
+            placeholder="Chef's Name"
             required
           />
         </div>
@@ -165,12 +185,12 @@ const RecipeForm = () => {
             id="servingSize"
             value={servingSize}
             onChange={(e) => setServingSize(e.target.value)}
-            placeholder="(e.g., 1ls, 4 servings)"
+            placeholder="(e.g., 4 servings)"
             required
           />
         </div>
         <div className={styles["formGroup"]}>
-          <label htmlFor="prepTime">Prep Time </label>
+          <label htmlFor="prepTime">Prep Time</label>
           <input
             type="text"
             id="prepTime"
@@ -191,6 +211,8 @@ const RecipeForm = () => {
             required
           />
         </div>
+
+        {/* Submit and Cancel Buttons */}
         <div id={styles.submitBtnGroup} className={styles["formGroup"]}>
           <button id={styles.closeButton} onClick={() => navigate(-1)}>
             Cancel
@@ -200,21 +222,27 @@ const RecipeForm = () => {
           </button>
         </div>
       </form>
+
       <div className={`${styles["formGroup"]} ${styles["right-half"]}`}>
-        <h6>Ingredients List:</h6>
-        <ul>
-          {ingredients.map((ing, index) => (
-            <li key={index}>{ing}</li>
-          ))}
-        </ul>
-        <h6>Directions List:</h6>
-        <ol>
-          {directions.map((dir, index) => (
-            <li key={index}>{dir}</li>
-          ))}
-        </ol>
+        <div>
+          <h3>Ingredients List:</h3>
+          <ul>
+            {ingredients.map((ing, index) => (
+              <li key={index}>{ing}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3>Directions List:</h3>
+          <ol>
+            {directions.map((dir, index) => (
+              <li key={index}>{dir}</li>
+            ))}
+          </ol>
+        </div>
       </div>
     </div>
   );
 };
+
 export default RecipeForm;

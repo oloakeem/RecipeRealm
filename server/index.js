@@ -5,7 +5,6 @@ const mongoose = require('mongoose')
 const recipe = require('./routes/Recipe');
 const adminRoutes = require('./routes/adminRoutes');
 
-
 const app = express()
 
 //MiddleWare goes here

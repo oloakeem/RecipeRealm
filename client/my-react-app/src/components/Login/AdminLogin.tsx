@@ -11,7 +11,7 @@ function AdminLogin() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/api/admins", {
+      const response = await fetch("http://localhost:5000/api/admins", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

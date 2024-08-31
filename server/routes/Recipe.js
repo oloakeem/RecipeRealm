@@ -1,7 +1,21 @@
 const mongoose = require('mongoose');
 const express = require('express');
-const { string } = require('joi');
 const router = express.Router();
+const cloudinary = require('cloudinary').v2;
+const multer = require('multer');
+require('dotenv').config();
+
+// Cloudinary configuration
+cloudinary.config({
+  cloud_name: 'disfrbfdt',
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+// Multer configuration for file uploads
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
 
 // Define your Recipe model (if not already defined)
 const RecipeSchema = new mongoose.Schema({
@@ -12,24 +26,41 @@ const RecipeSchema = new mongoose.Schema({
   servingSize : String,
   prepTime: String,
   totalTime: String,
+  imageUrl:String,
 });
 
 const Recipe = mongoose.model('Recipe', RecipeSchema);
 
 // POST route to add a new item
-router.post('/', async (req, res) => {
-  const {...recipeData } = req.body;
+// POST route to add a new item
+router.post('/', upload.single('image'), async (req, res) => {
+  try {
+    let imageUrl = '';
 
-
-    try {
-      const recipe = new Recipe(recipeData);
-      await recipe.save();
-      res.status(201).json(recipe);
-    } catch (error) {
-      res.status(400).json({ error: 'Error saving recipe' });
+    if (req.file) {
+      imageUrl = await new Promise((resolve, reject) => {
+        cloudinary.uploader.upload_stream({ resource_type: 'image' }, (error, result) => {
+          if (error)return reject(error);
+          resolve(result.url);
+        }).end(req.file.buffer);
+      });
     }
- 
+
+    // Add imageUrl to recipeData
+    const recipeData = {
+      ...req.body,
+      imageUrl: imageUrl,
+    };
+
+    const recipe = new Recipe(recipeData);
+    await recipe.save();
+    res.status(201).json(recipe);
+
+  } catch (error) {
+    res.status(400).json({ error: 'Error saving recipe' });
+  }
 });
+
 
 // GET route to fetch all items
 router.get('/', async (req, res) => {

@@ -14,11 +14,11 @@
   bottom: 10%; /* Align to the bottom of the viewport */
   width: 100%; /* Full width of the viewport */
   display: flex;
+  justify-content: center;
   flex-direction: column; /* Stack items vertically */
   align-items: center; /* Center items horizontally */
   gap: 10px; /* Space between the buttons */
-  padding: 1rem; /* Padding around the content */
-  height: 25%;
+  height: 35%;
 }
 
 .homeBtn {
@@ -36,6 +36,7 @@
 }
 
 .home-heading {
+  padding: 0 2rem;
   text-align: center;
   color: white;
 }

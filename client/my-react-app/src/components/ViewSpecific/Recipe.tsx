@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./Recipe.module.css";
-import avatar from "../../assets/avatar-profile-svgrepo-com.svg";
-import dishTray from "../../assets/dish-tray-svgrepo-com.svg";
-import myClock from "../../assets/clock-circle-svgrepo-com.svg";
+
 import { useNavigate } from "react-router-dom";
-import myKitchen from "../../assets/cookbook.png";
 
 interface FoodItem {
   _id: string;
@@ -16,6 +13,7 @@ interface FoodItem {
   servingSize: string;
   prepTime: string;
   totalTime: string;
+  imageUrl: string;
 }
 const Recipe = () => {
   const { id } = useParams<{ id: string }>(); // Get the recipe ID from the URL
@@ -27,7 +25,7 @@ const Recipe = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/recipes/${id}`);
+        const response = await fetch(`http://localhost:5000/api/recipes/${id}`);
 
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -43,10 +41,12 @@ const Recipe = () => {
   if (!foodRecipe) {
     return <div>Loading...</div>; // Handle loading state
   }
+  console.log("Rendering image with URL:", foodRecipe.imageUrl);
+
   return (
     <div className={styles["view-specific-page"]}>
       <div className={styles["specific-image"]}>
-        <img src={myKitchen} alt="" />
+        <img src={foodRecipe.imageUrl} alt="Recipe Image" />
       </div>
       <h1 className={styles.headerName}>{foodRecipe.dishName}</h1>
       <p>
@@ -79,8 +79,8 @@ const Recipe = () => {
       <div className={styles["ingredientSection"]}>
         <h2>Ingredients</h2>
         <ul>
-          {foodRecipe.ingredients.map((items) => (
-            <li>{items}</li>
+          {foodRecipe.ingredients.map((items, index) => (
+            <li key={`${items}-${index}`}>{items}</li>
           ))}
         </ul>
       </div>
@@ -88,8 +88,8 @@ const Recipe = () => {
       <div className={styles["directionSection"]}>
         <h2>Direction</h2>
         <ol>
-          {foodRecipe.directions.map((items) => (
-            <li>{items}</li>
+          {foodRecipe.directions.map((items, index) => (
+            <li key={`${items}-${index}`}>{items}</li>
           ))}
         </ol>
       </div>

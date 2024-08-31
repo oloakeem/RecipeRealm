@@ -8,6 +8,7 @@ import myplus from "../../assets/plus-sign.svg";
 interface FoodItem {
   _id: string;
   dishName: string;
+  imageUrl: string;
 }
 
 const Body = () => {
@@ -19,7 +20,7 @@ const Body = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/recipes");
+        const response = await fetch("http://localhost:5000/api/recipes");
 
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -84,7 +85,7 @@ const Body = () => {
           {filteredFoodList.map((food) => (
             <div key={food._id} className={styles["food-item"]}>
               <img
-                src={myClock}
+                src={food.imageUrl || myClock}
                 alt={food.dishName}
                 className={styles["food-image"]}
               />
