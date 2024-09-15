@@ -30,7 +30,7 @@ React's useState and useReducer hooks
 # 📦 Installation
 ### 1. Clone the repository: 
 Copy code
-git clone https://github.com/oloakeem/recipe-website.git<br>
+git clone https://github.com/oloakeem/RecipeRealm<br>
 cd recipe-website
 ### 2. Install dependencies for both client and server:
 
