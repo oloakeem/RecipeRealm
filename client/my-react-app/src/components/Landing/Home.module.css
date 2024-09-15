@@ -3,7 +3,7 @@
   height: 100vh; /* Full viewport height */
   background-image: 
     linear-gradient(to top, rgba(0, 0, 0, .95) 10%, rgba(0, 0, 0, 0)), /* Gradient overlay */
-    url("../../assets/home-landing-mobile.jpg"); /* Background image */
+    url("../../assets/pexels-mart-production-8108006.jpg"); /* Background image */
   background-size: cover; /* Cover the entire element */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-position: center; /* Center the image */
@@ -47,7 +47,7 @@
 .welcome-page {
     background-image: 
       linear-gradient(to top, rgba(0, 0, 0, .95) 10%, rgba(0, 0, 0, 0)), 
-      url("../../assets/home-landing-mobile.jpg"); /* Example tablet background */
+      url("../../assets/pexels-mart-production-8108006.jpg"); /* Example tablet background */
 }
 
 .homeBtn {
@@ -61,12 +61,12 @@
 .welcome-page {
     background-image: 
       linear-gradient(to top, rgba(0, 0, 0, .95) 10%, rgba(0, 0, 0, 0)), 
-      url("../../assets/home-landing-mobile.jpg"); /* Example desktop background */
+      url("../../assets/pexels-mart-production-8108006.jpg"); /* Example desktop background */
+      background-size: fill;
 }
 
 .home-components {
     bottom: 15%; /* Adjust position on larger screens */
-    flex-direction: row; /* Change layout to row on desktop */
     gap: 20px; /* Increase space between elements */
 }
 

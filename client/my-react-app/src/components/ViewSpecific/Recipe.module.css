@@ -4,12 +4,13 @@
     font-family: Arial, sans-serif;
     color: white;
     max-width: 800px;
+    height: 100%;
     margin: auto;
     background-image: linear-gradient(
       to top,
-      rgba(0, 0, 0, 0.95) 55%, /* Dark portion remains at 80% */
-      rgba(0, 0, 0, 0.5) 65%,  /* Intermediate fade at 90% */
-      rgba(0, 0, 0, 0) 100%    /* Fully transparent at 100% */
+     rgba(38, 40, 42, 1) 75%, /* Dark portion remains at 80% */
+      rgba(38, 40, 42, 0.5) 85%,  /* Intermediate fade at 90% */
+      rgba(38, 40, 42, 0) 100%    /* Fully transparent at 100% */
     );
   }
 /* Specific Image */
@@ -18,13 +19,15 @@
     justify-content: center;
     align-items: center;
     margin: 20px 0;
+    height: 250px;
   }
   
   .specific-image img {
     width: 100%;
     z-index: -1;
-    height: auto;
-    max-width: 400px; /* Adjust as needed */
+    height: 100%;
+    object-fit: cover;
+
   }
   
   /* Header Section */
@@ -48,15 +51,19 @@
   .microInfo {
     display: flex;
     justify-content: center;
-    margin: 2rem;
+    margin: 1rem;
+    align-items: center;
   }
   
   .microInfoBody {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 600px;
   }
+  .microInfoBody h6{
+    font-size: .8rem;
+    font-weight: bold; /* Adjust font weight as needed */
+  }  
   
   .microInfoBody div {
     display: flex;

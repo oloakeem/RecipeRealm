@@ -15,7 +15,11 @@
 .itemListView{
   display: block;
 }
-
+.itemListView img{
+  float: right;
+  width: 25px;
+  height: 25px;
+}
 
 /* Ingredients Section */
 .ingredients {
@@ -179,11 +183,15 @@ li::marker {
 
 /* List Styles */
 .right-half ul,
-.right-half ol {
+.right-half ol{
   padding-left: 20px; /* Adjust padding for list bullets */
   word-wrap: break-word; /* Ensure text wraps correctly */
 }
-
+.right-half img{
+  width: 25px;
+  height: 25px;
+  float: right;
+}
 /* Ensure h3 is styled properly */
 .right-half h3 {
   margin-top: 1rem;

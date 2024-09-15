@@ -1,6 +1,6 @@
 import styles from "./Body.module.css";
 import { useEffect, useState } from "react";
-import myClock from "../../assets/clock-circle-svgrepo-com.svg";
+import mydish from "../../assets/dish-svgrepo-com.svg";
 import { Link } from "react-router-dom";
 import myarrow from "../../assets/Arrow-Left.svg";
 import myplus from "../../assets/plus-sign.svg";
@@ -48,54 +48,55 @@ const Body = () => {
 
   return (
     <>
-      <div className={styles["top-head"]}>
-        <button
-          className={styles["return-button"]}
-          onClick={() => window.history.back()}
-        >
-          <img src={myarrow} alt="" />
-        </button>
-        <h2 className={styles["search-title"]}>Recipe Catalog</h2>
+      <div className={styles.viewBodyBackground}>
+        <div className={styles["top-head"]}>
+          <button
+            className={styles["return-button"]}
+            onClick={() => window.history.back()}
+          >
+            <img src={myarrow} alt="" />
+          </button>
+          <h2 className={styles["search-title"]}>Recipe Catalog</h2>
 
-        {isAdmin && (
-          <Link to="/add-recipe">
-            <button className={styles["add-button"]}>
-              <img src={myplus} alt="" />
-            </button>
-          </Link>
-        )}
-      </div>
+          {isAdmin && (
+            <Link to="/add-recipe">
+              <button className={styles["add-button"]}>
+                <img src={myplus} alt="" />
+              </button>
+            </Link>
+          )}
+        </div>
 
-      <div className={styles["search-container"]}>
-        <form
-          className={styles["searchBar"]}
-          onSubmit={(e) => e.preventDefault()}
-        >
-          <input
-            onChange={handleSearchChange}
-            type="text"
-            placeholder="Search..."
-            value={search}
-          />
-        </form>
-      </div>
+        <div className={styles["search-container"]}>
+          <form
+            className={styles["searchBar"]}
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <input
+              onChange={handleSearchChange}
+              type="text"
+              placeholder="Search..."
+              value={search}
+            />
+          </form>
+        </div>
 
-      <div className={styles.foodContainer}>
-        <div className={styles["food-list"]}>
-          {filteredFoodList.map((food) => (
-            <div key={food._id} className={styles["food-item"]}>
-              <img
-                src={food.imageUrl || myClock}
-                alt={food.dishName}
-                className={styles["food-image"]}
-              />
-              <div className={styles["food-details"]}>
-                <Link to={`/view-specific-recipe/${food._id}`}>
-                  {food.dishName}
-                </Link>
+        <div className={styles.foodContainer}>
+          <div className={styles["food-list"]}>
+            {filteredFoodList.map((food) => (
+              <div key={food._id} className={styles["food-item"]}>
+                <div className={styles["food-image"]}>
+                  <img src={food.imageUrl || mydish} alt={food.dishName} />
+                </div>
+
+                <div className={styles["food-details"]}>
+                  <Link to={`/view-specific-recipe/${food._id}`}>
+                    {food.dishName}
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./Recipe.module.css";
+import defaultImage from "../../assets/pexels-goumbik-616484.jpg";
 
 import { useNavigate } from "react-router-dom";
 
@@ -46,7 +47,11 @@ const Recipe = () => {
   return (
     <div className={styles["view-specific-page"]}>
       <div className={styles["specific-image"]}>
-        <img src={foodRecipe.imageUrl} alt="Recipe Image" />
+        <img
+          className={styles.viewSpecificImage}
+          src={foodRecipe.imageUrl || defaultImage}
+          alt="Recipe Image"
+        />
       </div>
       <h1 className={styles.headerName}>{foodRecipe.dishName}</h1>
       <p>
@@ -62,7 +67,7 @@ const Recipe = () => {
             {foodRecipe.author}
           </div>
           <div>
-            <h6>SERVING SIZE</h6>
+            <h6>SERV SIZE</h6>
             {foodRecipe.servingSize}
           </div>
           <div>

@@ -1,6 +1,7 @@
 import styles from "./RecipeForm.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import myminus from "../../assets/minus-svgrepo-com.svg";
 
 const RecipeForm = () => {
   const [dishName, setDishName] = useState("");
@@ -35,6 +36,19 @@ const RecipeForm = () => {
       setImage(event.target.files[0]);
     }
   };
+
+  function deleteDirection(index: number) {
+    // Assume `setDirections` is the state setter for the `directions` array
+    setDirections((prevDirections) =>
+      prevDirections.filter((_, i) => i !== index)
+    );
+  }
+  function deleteIngredient(index: number) {
+    // Assume `setDirections` is the state setter for the `directions` array
+    setIngredients((prevIngredients) =>
+      prevIngredients.filter((_, i) => i !== index)
+    );
+  }
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -123,7 +137,14 @@ const RecipeForm = () => {
             <h6>Ingredients List:</h6>
             <ul>
               {ingredients.map((ing, index) => (
-                <li key={index}>{ing}</li>
+                <li key={index}>
+                  {ing}
+                  <img
+                    src={myminus}
+                    onClick={() => deleteIngredient(index)}
+                    alt="-"
+                  />
+                </li>
               ))}
             </ul>
           </div>
@@ -149,7 +170,14 @@ const RecipeForm = () => {
             <h6>Directions List:</h6>
             <ol>
               {directions.map((dir, index) => (
-                <li key={index}>{dir}</li>
+                <li key={index}>
+                  {dir}{" "}
+                  <img
+                    src={myminus}
+                    onClick={() => deleteDirection(index)}
+                    alt="-"
+                  />
+                </li>
               ))}
             </ol>
           </div>
@@ -228,7 +256,10 @@ const RecipeForm = () => {
           <h3>Ingredients List:</h3>
           <ul>
             {ingredients.map((ing, index) => (
-              <li key={index}>{ing}</li>
+              <li key={index}>
+                {ing}
+                <img src={myminus} onClick={() => deleteIngredient(index)} />
+              </li>
             ))}
           </ul>
         </div>
@@ -236,7 +267,10 @@ const RecipeForm = () => {
           <h3>Directions List:</h3>
           <ol>
             {directions.map((dir, index) => (
-              <li key={index}>{dir}</li>
+              <li key={index}>
+                {dir}
+                <img src={myminus} onClick={() => deleteDirection(index)} />
+              </li>
             ))}
           </ol>
         </div>
