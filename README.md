@@ -1,4 +1,4 @@
-# 📖Recipe Website
+# 📖Recipe Realm
 A web-based application that allows users to create, share, and manage recipes. This platform provides an easy-to-use interface where users can submit new recipes, view existing ones, and upload images of their dishes. Admin users have additional privileges to add, edit, or delete recipes.
 
 # 🚀 Features
