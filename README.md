@@ -63,9 +63,12 @@ Admin users can submit new recipes, add images, and manage the recipe collection
 For Regular Users:
 Users can browse recipes and submit new recipes. They won’t be able to manage or delete existing recipes unless they are admins.
 # 🖼️ Screenshots
-# Recipe Form
+![image](https://github.com/user-attachments/assets/535c793b-adfb-432d-a93b-ddeda4fd2650)
+![image](https://github.com/user-attachments/assets/fc33d15a-536d-44b3-a1d0-b16bc6f7e683)
+![image](https://github.com/user-attachments/assets/35708951-b029-4fb0-af60-8e4000a7d62a)
 
-# Recipe List
+# Recipe Form
+![image](https://github.com/user-attachments/assets/8eac554a-ae3d-4e59-8131-e927571ed267)
 
 # 🛠️ Development Workflow
 Directory Structure:
