@@ -72,7 +72,8 @@ Directory Structure:
 bash
 Copy code
 ![image](https://github.com/user-attachments/assets/e1f98b49-72d8-4020-927d-20a282346fa9)
-🚧 Future Enhancements
+
+# 🚧 Future Enhancements
 User Authentication: Implement user login, registration, and authentication for more personalized features.
 Rating System: Allow users to rate recipes and leave reviews.
 Search Functionality: Improve search capabilities to allow filtering recipes by ingredients, cuisine, and more.
