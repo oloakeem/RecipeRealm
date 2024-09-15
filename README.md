@@ -8,13 +8,13 @@ Ingredient & Step Management: Allows users to add, remove, and manage ingredient
 Image Upload: Recipes can include images to provide a visual representation of the final dish.
 Responsive Design: Works seamlessly across various screen sizes, including desktop and mobile devices.
 # 🛠️ Tech Stack
-Frontend:
+## Frontend:
 
 React (JavaScript)
 TypeScript
 CSS Modules for styling
 React Router for navigation
-Backend:
+## Backend:
 
 Node.js
 Express.js
@@ -28,11 +28,9 @@ State Management:
 
 React's useState and useReducer hooks
 # 📦 Installation
-Clone the repository:
-
-bash
+1. Clone the repository: 
 Copy code
-git clone https://github.com/your-username/recipe-website.git
+git clone https://github.com/oloakeem/recipe-website.git<br>
 cd recipe-website
 Install dependencies for both client and server:
 
