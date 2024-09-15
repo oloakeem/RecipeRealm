@@ -28,41 +28,33 @@ State Management:
 
 React's useState and useReducer hooks
 # 📦 Installation
-1. Clone the repository: 
+### 1. Clone the repository: 
 Copy code
 git clone https://github.com/oloakeem/recipe-website.git<br>
 cd recipe-website
-Install dependencies for both client and server:
+### 2. Install dependencies for both client and server:
 
-bash
 Copy code
-# Client dependencies
+#### Client dependencies
 cd client
 npm install
 
-# Server dependencies
+#### Server dependencies
 cd ../server
 npm install
-Set up environment variables: Create a .env file in the root of the server directory with the following variables:
+### 3. Set up environment variables: Create a .env file in the root of the server directory with the following variables:
 
-bash
-Copy code
-PORT=5000
-MONGODB_URI=your_mongodb_connection_string
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
-CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-Run the development servers:
+![image](https://github.com/user-attachments/assets/535bc0ff-4673-44ee-ac0c-14ab64b8c0d3)
 
-bash
+### 4. Run the development servers:
 Copy code
-# Run the client (React)
+#### Run the client (React)
 cd client
 npm run dev
 
-# Run the backend (Express)
+#### Run the backend (Express)
 cd ../server
-nodemon index.js
+nodemon index.js<br>
 The client will run on http://localhost:3000, and the server will run on http://localhost:5000.
 
 # 🔧 Usage
